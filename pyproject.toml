@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [project.scripts]
-visaocomp-volei = "visaocomp_volei:main"
+visaocomp_volei = "visaocomp_volei:main"
 
 [build-system]
 requires = ["hatchling"]

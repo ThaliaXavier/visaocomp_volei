@@ -1,5 +1,5 @@
 import sys
-from utils import parse_args
+from .utils import parse_args
 
 def main():
      args = parse_args()
