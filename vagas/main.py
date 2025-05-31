@@ -28,7 +28,7 @@ def processa_frame(img):
     img_blur = cv2.medianBlur(img_threshold, 5)
     kernel = np.ones((3, 3), np.int8)
     img_dil = cv2.dilate(img_blur, kernel)
-    return [img_dil, img_cinza]
+    return [img_dil, img_cinza, img_threshold]
 
 def verifica_vagas(img, img_dil, vagas):
     """
@@ -62,7 +62,7 @@ def exibe_status(img, qt_vagas_abertas, num_vagas):
     cv2.putText(img, 'VAGAS: {}/{}'.format(qt_vagas_abertas, num_vagas), (100, 45), cv2.FONT_HERSHEY_DUPLEX, 1.5, (255, 255, 255), 5)
 
 def main():
-    video_path = 'vagas/parkinglot.mp4'
+    video_path = 'vagas/volei.mp4'
     video = cv2.VideoCapture(video_path)
 
     if not video.isOpened():
@@ -87,6 +87,10 @@ def main():
         cv2.namedWindow('Passo', cv2.WINDOW_NORMAL)
         cv2.resizeWindow('Passo', 350, 200)
         cv2.imshow('Passo', img_dil[1])
+
+        cv2.namedWindow('Passo (threshold)', cv2.WINDOW_NORMAL)
+        cv2.resizeWindow('Passo (threshold)', 350, 200)
+        cv2.imshow('Passo (threshold)', img_dil[1])
 
         if cv2.waitKey(DELAY) == ord('q'):
             break

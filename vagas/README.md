@@ -102,4 +102,3 @@ Região de interesse 1: x=124, y=81, w=123, h=223
 Região de interesse 2: x=282, y=86, w=127, h=215
 ...
 ```
-# qualquer coisa
