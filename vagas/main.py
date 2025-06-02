@@ -3,16 +3,9 @@ import numpy as np
 
 # Definição das regiões de interesse (ROI)
 VAGAS = [
-    [1, 89, 108, 213],
-    [124, 81, 123, 223],
-    [282, 86, 127, 215],
-    [432, 81, 135, 219],
-    [583, 88, 135, 215],
-    [727, 87, 141, 212],
-    [880, 93, 123, 205],
-    [1034, 86, 118, 212]
+    [583, 395, 2629, 1315]
+  
 ]
-
 # Constantes
 LIMITE_VAGA_LIVRE = 3000
 LIMITE_VAGA_OCUPADA = 5000

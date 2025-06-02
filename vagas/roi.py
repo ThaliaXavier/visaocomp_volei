@@ -39,7 +39,7 @@ def capturar_quadro_do_video(caminho_video, numero_quadro):
     return quadro
 
 # Caminho para o vídeo
-caminho_video = 'vagas/parkinglot.mp4'
+caminho_video = 'vagas/volei.mp4'
 
 # Número do quadro a ser capturado
 numero_quadro = 100  # Altere para o número do quadro que você deseja capturar
