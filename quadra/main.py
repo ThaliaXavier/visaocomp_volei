@@ -35,6 +35,7 @@ def verifica_bola_fora(img, quadra):
 
     contornos, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
+    bola_naodetectada = False
 
     for contorno in contornos:
         area = cv2.contourArea(contorno)
@@ -78,6 +79,11 @@ def main():
         check, img = video.read()
         if not check:
             break
+        img_dil, img_cinza, img_threshold = processa_frame(img)
+
+        img_cinza_small = cv2.resize(img_cinza, (0, 0), fx=0.5, fy=0.5)
+        img_threshold_small = cv2.resize(img_threshold, (0, 0), fx=0.5, fy=0.5)
+        img_dil_small = cv2.resize(img_dil, (0, 0), fx=0.5, fy=0.5)
 
     
         fora = verifica_bola_fora(img, QUADRA)
@@ -87,6 +93,18 @@ def main():
         cv2.namedWindow('Video', cv2.WINDOW_NORMAL)
         cv2.resizeWindow('Video', 910, 510)  
         cv2.imshow('Video', img)
+
+        cv2.namedWindow('Cinza', cv2.WINDOW_NORMAL)
+        cv2.resizeWindow('Cinza', 480, 270)
+        cv2.imshow('Cinza', img_cinza_small)
+
+        cv2.namedWindow('Threshold', cv2.WINDOW_NORMAL)
+        cv2.resizeWindow('Threshold', 480, 270)
+        cv2.imshow('Threshold', img_threshold_small)
+
+        cv2.namedWindow('Dilatada', cv2.WINDOW_NORMAL)
+        cv2.resizeWindow('Dilatada', 480, 270)
+        cv2.imshow('Dilatada', img_dil_small)
 
 
         if cv2.waitKey(DELAY) == ord('q'):
